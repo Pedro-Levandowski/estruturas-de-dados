@@ -9,7 +9,7 @@ public class Arvore {
        No noE = new No("E");
        No noF = new No("F");
 
-       No raiz = noA;
+       this.raiz = noA;
 
        noA.filhoEsquerdo = noB;
        noA.filhoDireito = noC;
