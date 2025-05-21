@@ -1,22 +1,37 @@
 public class Arvore {
-   No raiz;
+    No raiz;
 
-   Arvore(){
-       No noA = new No("A");
-       No noB = new No("B");
-       No noC = new No("C");
-       No noD = new No("D");
-       No noE = new No("E");
-       No noF = new No("F");
+    public Arvore(No raiz) {
+        this.raiz = raiz;
+    }
 
-       this.raiz = noA;
+    public int contarNos(No no) {
+        if (no == null) return 0;
+        return 1 + contarNos(no.filhoEsquerdo) + contarNos(no.filhoDireito);
+    }
 
-       noA.filhoEsquerdo = noB;
-       noA.filhoDireito = noC;
-       noB.filhoEsquerdo = noD;
-       noB.filhoDireito = noE;
-       noC.filhoDireito = noF;
-   }
+    public void percorrerPreOrdem(No no){
+        if (no != null){
+            System.out.print(no.conteudo + " ");
+            percorrerPreOrdem(no.filhoEsquerdo);
+            percorrerPreOrdem(no.filhoDireito);
+        }
+    }
 
+    public void percorrerEmOrdem(No no){
+        if (no != null){
+            percorrerEmOrdem(no.filhoEsquerdo);
+            System.out.print(no.conteudo + " ");
+            percorrerEmOrdem(no.filhoDireito);
+        }
+    }
+
+    public void percorrerPosOrdem(No no){
+        if (no != null){
+            percorrerPosOrdem(no.filhoEsquerdo);
+            percorrerPosOrdem(no.filhoDireito);
+            System.out.print(no.conteudo + " ");
+        }
+    }
 
 }
