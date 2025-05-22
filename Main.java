@@ -22,13 +22,30 @@ public class Main {
         arvore1.percorrerPreOrdem(noA);
         System.out.println(" ");
 
+        System.out.println("=== Travessia Pré-Ordem Sem Recursividade ===");
+        arvore1.percorrerPreOrdemSemRecursividade();
+        System.out.println(" ");
+
         System.out.println("=== Travessia Em-Ordem ===");
         arvore1.percorrerEmOrdem(noA);
+        System.out.println(" ");
+
+        System.out.println("=== Travessia Em-Ordem Sem Recursividade ===");
+        arvore1.percorrerEmOrdemSemRecursividade();
         System.out.println(" ");
 
         System.out.println("=== Travessia Pós-Ordem ===");
         arvore1.percorrerPosOrdem(noA);
         System.out.println(" ");
+
+        System.out.println("=== Travessia Pós-Ordem Sem Recursividade ===");
+        arvore1.percorrerPosOrdemSemRecursividade();
+        System.out.println(" ");
+
+        System.out.println("=== Travessia Em Nível ===");
+        arvore1.percorrerEmNivel();
+        System.out.println(" ");
+
 
     }
 }

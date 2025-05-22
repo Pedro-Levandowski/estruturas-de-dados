@@ -1,3 +1,7 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 public class Arvore {
     No raiz;
 
@@ -33,5 +37,79 @@ public class Arvore {
             System.out.print(no.conteudo + " ");
         }
     }
+
+    public void percorrerEmNivel(){
+        if (raiz == null) return;
+
+        Queue<No> fila = new LinkedList<>();
+        fila.add(raiz);
+
+        while(!fila.isEmpty()){
+            No atual = fila.poll();
+            System.out.print(atual.conteudo + " ");
+
+            if (atual.filhoEsquerdo != null) fila.add(atual.filhoEsquerdo);
+            if (atual.filhoDireito != null) fila.add(atual.filhoDireito);
+        }
+    }
+
+    public void percorrerPreOrdemSemRecursividade(){
+        if (raiz == null) return;
+
+        Stack<No> pilha = new Stack<>();
+        pilha.push(raiz);
+
+        while (!pilha.isEmpty()){
+            No atual = pilha.pop();
+            System.out.print(atual.conteudo + " ");
+
+            if (atual.filhoDireito != null) pilha.push(atual.filhoDireito);
+            if (atual.filhoEsquerdo != null) pilha.push(atual.filhoEsquerdo);
+        }
+    }
+
+    public void percorrerEmOrdemSemRecursividade(){
+        if (raiz == null) return;
+
+        Stack<No> pilha = new Stack<>();
+        No atual = raiz;
+
+        while (atual != null || !pilha.isEmpty()){
+            while (atual != null){
+            pilha.push(atual);
+            atual = atual.filhoEsquerdo;
+            }
+            atual = pilha.pop();
+            System.out.print(atual.conteudo + " ");
+            atual = atual.filhoDireito;
+        }
+    }
+
+    public void percorrerPosOrdemSemRecursividade(){
+        if (raiz == null) return;
+
+        Stack<No> pilha = new Stack<>();
+        No atual = raiz;
+        No ultimoVisitado = null;
+
+        while (atual != null || !pilha.isEmpty()){
+            while (atual != null){
+                pilha.push(atual);
+                atual = atual.filhoEsquerdo;
+            }
+
+            No topo = pilha.peek();
+
+            if (topo.filhoDireito != null && ultimoVisitado != topo.filhoDireito) {
+                atual = topo.filhoDireito;
+            } else {
+                pilha.pop();
+                System.out.print(topo.conteudo + " ");
+                ultimoVisitado = topo;
+            }
+        }
+
+    }
+
 
 }
