@@ -111,5 +111,29 @@ public class Arvore {
 
     }
 
+    public int contarNosFolha(No no){
+        if (no == null) return 0;
+        if (no.filhoEsquerdo == null && no.filhoDireito == null) return 1;
+        return contarNosFolha(no.filhoEsquerdo) + contarNosFolha(no.filhoDireito);
+    }
 
+    public int contarNosFolhaSemRecursividade(){
+        int cont = 0;
+        if (raiz == null) return cont;
+
+        Stack<No> pilha = new Stack<>();
+        pilha.push(raiz);
+
+        while (!pilha.isEmpty()){
+            No atual = pilha.pop();
+            if (atual.filhoDireito == null && atual.filhoEsquerdo == null) {
+                cont++;
+            } else {
+                if (atual.filhoDireito != null) pilha.push(atual.filhoDireito);
+                if (atual.filhoEsquerdo != null) pilha.push(atual.filhoEsquerdo);
+            }
+        }
+        return cont;
+    }
+    
 }

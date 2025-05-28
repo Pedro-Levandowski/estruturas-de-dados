@@ -46,6 +46,11 @@ public class Main {
         arvore1.percorrerEmNivel();
         System.out.println(" ");
 
+        System.out.println("=== Contagem de Nós Folha ===");
+        System.out.println("Quantidade de nós folha: " + arvore1.contarNosFolha(noA));
+
+        System.out.println("=== Contagem de Nós Folha Sem Recursividade ===");
+        System.out.println("Quantidade de nós folha: " + arvore1.contarNosFolhaSemRecursividade());
 
     }
 }
