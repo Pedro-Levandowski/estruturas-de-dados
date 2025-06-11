@@ -1,0 +1,12 @@
+public class NoRubroNegro {
+    String conteudo;
+    NoRubroNegro filhoEsquerdo;
+    NoRubroNegro filhoDireito;
+    NoRubroNegro pai;
+    boolean cor;
+
+    public NoRubroNegro(String conteudo) {
+        this.conteudo = conteudo;
+        this.cor = true;
+    }
+}
